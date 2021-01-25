@@ -236,3 +236,76 @@ main{
     line-height: 1.5rem;
     color: var(--warm-black);
 }
+/* ----------------- */
+
+
+.main-currency-table2{
+    width: 70%;
+    min-width: 235px;
+    max-width: 500px;
+    height: 360px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+.main-currency-table2 .currency-tablle--title2{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: var(--secondary-blue);
+}
+.currency-table--container2{
+    width: 90%;
+    min-width: 230px;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto;
+}
+.currency-table--container2 table{
+    width: 100%;
+    height: 100%;
+}
+.currency-table--container2 td{
+    width: 50%;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    color: var(--gray);
+    background-color: var(--just-white);
+}
+.currency-table--container2 .table__top-left2{
+    border-radius: 15px 0 0 0;
+}
+.currency-table--container2 .table__top-right2{
+    border-radius: 0 15px 0 0;
+}
+.currency-table--container2 .table__botton-left2{
+    border-radius: 0 0 0 15px;
+}
+.currency-table--container2 .table__botton-right2{
+    border-radius: 0 0 15px 0;
+}
+
+.currency-table--container2 .table__right2{
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.7rem;
+    color: #757575;
+}
+
+.currency-table--date2{
+    width: 190px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: var(--soft-blue);
+    border-radius: 8px;
+}
+.currency-table--date2 p{
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    color: var(--warm-black);
+}
