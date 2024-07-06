@@ -1,11 +1,11 @@
-    /*
+/*
 1. Posicionamiento (position static, absolute, relative, fixed)
 2. Modelo caja (Box model: margin, padding, width, heigth)
 3. Tipografía (tipos, tamaños de fuente, etc)
 4. Temas visuales (shadow box, border radius, gradient, etc)
 5. Otros (reglas Css y más)
 */
-    
+
 :root {
     /* Colores */
     --bitcoin-orange: #f7931a;
@@ -40,7 +40,11 @@ header {
     height: 334px;
     text-align: center;
     background: linear-gradient(207.8deg, #201E1C 16.69%, #F7931A 100%);
-    ;
+    transition: background 0.3s ease;
+}
+
+header:hover {
+    background: linear-gradient(207.8deg, #F7931A 16.69%, #201E1C 100%);
 }
 
 header img {
@@ -48,6 +52,11 @@ header img {
     height: 24px;
     margin-top: 60px;
     align-self: center;
+    transition: transform 0.3s ease;
+}
+
+header img:hover {
+    transform: scale(1.1);
 }
 
 .header--title-container {
@@ -64,7 +73,7 @@ header img {
     font-size: 2.4rem;
     font-weight: bold;
     line-height: 2.6rem;
-    color: var(--just-white)
+    color: var(--just-white);
 }
 
 .header--title-container p {
@@ -72,20 +81,21 @@ header img {
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1.8rem;
-    color: var(--soft-orange)
+    color: var(--soft-orange);
 }
 
 .header--title-container .header--button {
     position: absolute;
-    left: calc(50% - 118px);
+    left: 50%;
     top: 270px;
+    transform: translateX(-50%);
     display: block;
     margin-top: 35px;
     padding: 15px;
     width: 229px;
     height: 48px;
     background-color: var(--off-white);
-    /*Sombra*/
+    /* Sombra */
     box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
     border: none;
     border-radius: 5px;
@@ -93,32 +103,45 @@ header img {
     font-weight: bold;
     text-decoration: none;
     color: var(--black);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.header--button span {
+.header--title-container .header--button:hover {
+    background-color: var(--bitcoin-orange);
+    box-shadow: 0px 6px 12px rgba(89, 73, 30, 0.25);
+    color: var(--just-white);
+}
+
+.header--title-container .header--button span {
     display: inline-block;
     width: 13px;
     height: 8px;
     margin-left: 10px;
     background-image: url('./assets/icons/down-arrow.svg');
 }
+
 /* otras alternativas para posicionar el botón (quitando el margin-top): 
 Usando calc() también en top: .header__title-container .header__button {
-position: absolute;
-top: calc(100% - 24px);
-left: calc(50% - 114.5px);
+    position: absolute;
+    top: calc(100% - 24px);
+    left: calc(50% - 114.5px);
 }
 Usando translate(): .header__title-container .header__button {
-position: absolute;
-top: 100%;
-left: 50%;
-transform: translate(-50%, -24px);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -24px);
 } */
 
 main {
     width: 100%;
     height: auto;
-    background-color: var (var(--off-white));
+    background-color: var(--off-white);
+    transition: background-color 0.3s ease;
+}
+
+main:hover {
+    background-color: var(--soft-blue);
 }
 
 .main-exchange-container {
@@ -142,10 +165,15 @@ main {
     margin: 0 auto;
     margin-bottom: 50px;
     background-image: url(./assets/img/Bitcoin.svg);
-    /*para que la imagen quede inalterable:*/
+    /* para que la imagen quede inalterable: */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+}
+
+.main-exchange-container .backgroundImg:hover {
+    transform: scale(1.1);
 }
 
 .main-exchange-container h2 {
@@ -154,6 +182,11 @@ main {
     font-weight: bold;
     line-height: 2.6rem;
     color: var(--black);
+    transition: color 0.3s ease;
+}
+
+.main-exchange-container h2:hover {
+    color: var(--bitcoin-orange);
 }
 
 .main-exchange-container p {
@@ -193,6 +226,7 @@ main {
 .currency-table--container table {
     width: 100%;
     height: 100%;
+    border-collapse: collapse;
 }
 
 .currency-table--container td {
@@ -202,6 +236,13 @@ main {
     line-height: 1.9rem;
     color: var(--grey);
     background-color: var(--just-white);
+    padding: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.currency-table--container td:hover {
+    background-color: var(--soft-orange);
+    color: var(--warm-black);
 }
 
 .currency-table--container .table__top-left {
@@ -224,7 +265,7 @@ main {
     font-size: 1.4rem;
     font-weight: normal;
     line-height: 1.7rem;
-    color: #757575
+    color: #757575;
 }
 
 .currency-table--container .down {
@@ -251,7 +292,7 @@ main {
 
 .currency-table--date {
     width: max-content;
-    /*evita el desbordamiento del texto y limita el ancho al contenido*/
+    /* evita el desbordamiento del texto y limita el ancho al contenido */
     height: 30px;
     margin: 15px auto 0;
     padding: 8px;
@@ -264,6 +305,7 @@ main {
     line-height: 1.5rem;
     color: var(--warm-black);
 }
+
 /* commission table */
 
 .main-commission-table {
@@ -295,6 +337,7 @@ main {
 .commission-table--container table {
     width: 100%;
     height: 100%;
+    border-collapse: collapse;
 }
 
 .commission-table--container td {
@@ -304,6 +347,13 @@ main {
     line-height: 1.9rem;
     color: var(--grey);
     background-color: var(--just-white);
+    padding: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.commission-table--container td:hover {
+    background-color: var(--soft-blue);
+    color: var(--warm-black);
 }
 
 .commission-table--container .table__top-left {
@@ -326,14 +376,13 @@ main {
     font-size: 1.4rem;
     font-weight: normal;
     line-height: 1.7rem;
-    color: #757575
+    color: #757575;
 }
 
 .commission-table--date {
     width: max-content;
     height: 30px;
     margin: 15px auto 0;
-    margin-top: 15px;
     padding: 8px;
     background-color: var(--soft-blue);
     border-radius: 8px;
@@ -345,6 +394,7 @@ main {
     color: var(--warm-black);
 }
 
+
 .main-product-detail {
     position: relative;
     width: 100%;
@@ -352,6 +402,11 @@ main {
     height: auto;
     padding: 20px 10px;
     background-color: var(--warm-black);
+    transition: background-color 0.3s ease;
+}
+
+.main-product-detail:hover {
+    background-color: #3a3733; /* Slightly lighter shade for hover effect */
 }
 
 .product-detail--batata-logo {
@@ -361,6 +416,11 @@ main {
     top: -10px;
     left: calc(50% - 20px);
     background-image: url(./assets/icons/batata.svg);
+    transition: transform 0.3s ease;
+}
+
+.product-detail--batata-logo:hover {
+    transform: scale(1.1);
 }
 
 .product-detail--title {
@@ -376,7 +436,12 @@ main {
     font-size: 2.4rem;
     font-weight: bold;
     line-height: 2.6rem;
-    color: var(--just-white)
+    color: var(--just-white);
+    transition: color 0.3s ease;
+}
+
+.product-detail--title h2:hover {
+    color: var(--bitcoin-orange);
 }
 
 .product-detail--title p {
@@ -385,63 +450,50 @@ main {
     font-weight: 500;
     line-height: 1.8rem;
     color: #dedede;
+    transition: color 0.3s ease;
+}
+
+.product-detail--title p:hover {
+    color: var(--bitcoin-orange);
 }
 
 .product-detail--card {
     width: 90%;
     min-width: 288px;
     max-width: 400px;
-    /* el mínimo es 150px, pero crece con el contenido del texto: */
     min-height: 150px;
     margin: 15px auto;
     padding: 15px;
     background-color: var(--black);
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0.16);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-detail--card .clock {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-bottom: 10px;
-    background-image: url(./assets/icons/clock.svg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.product-detail--card:hover {
+    background-color: #3a3a3a;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-.product-detail--card .eye {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-bottom: 10px;
-    background-image: url(./assets/icons/eye.svg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.product-detail--card .dollar-sign {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-bottom: 10px;
-    background-image: url(./assets/icons/dollar-sign.svg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
+.product-detail--card .clock,
+.product-detail--card .eye,
+.product-detail--card .dollar-sign,
 .product-detail--card .check-circle {
     display: inline-block;
     width: 20px;
     height: 20px;
     margin-bottom: 10px;
-    background-image: url(./assets/icons/check-circle.svg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+}
+
+.product-detail--card .clock:hover,
+.product-detail--card .eye:hover,
+.product-detail--card .dollar-sign:hover,
+.product-detail--card .check-circle:hover {
+    transform: scale(1.1);
 }
 
 .product--card-title {
@@ -454,7 +506,7 @@ main {
 
 .product--card-body {
     font-size: 1.4rem;
-    font-size: 500;
+    font-weight: 500;
     line-height: 1.8rem;
     color: #dedede;
 }
@@ -468,6 +520,11 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
+    transition: background-position 0.3s ease;
+}
+
+.bitcoin-img-container:hover {
+    background-position: top;
 }
 
 .bitcoin-img-container h2 {
@@ -476,6 +533,11 @@ main {
     font-weight: bold;
     line-height: 2.6rem;
     color: var(--just-white);
+    transition: color 0.3s ease;
+}
+
+.bitcoin-img-container h2:hover {
+    color: var(--bitcoin-orange);
 }
 
 .main-plans-container {
@@ -498,6 +560,11 @@ main {
     font-weight: bold;
     line-height: 2.6rem;
     color: var(--black);
+    transition: color 0.3s ease;
+}
+
+.plans--title h2:hover {
+    color: var(--bitcoin-orange);
 }
 
 .plans--title p {
@@ -506,6 +573,11 @@ main {
     font-weight: 500;
     line-height: 1.8rem;
     color: #757575;
+    transition: color 0.3s ease;
+}
+
+.plans--title p:hover {
+    color: var(--bitcoin-orange);
 }
 
 .plans-container--slider {
@@ -530,36 +602,16 @@ main {
     background-color: var(--just-white);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.recommended {
-    position: absolute;
-    width: 120px;
-    height: 31px;
-    padding: 8px;
-    top: -15px;
-    left: calc(50% - 60px);
-    font-size: 1.2rem;
-    font-weight: 500;
-    background-color: var(--bitcoin-orange);
-    border-radius: 8px;
-    color: var(--just-white);
+.plans-container--card:hover {
+    background-color: var(--soft-blue);
+    box-shadow: 0 6px 12px rgba(89, 73, 30, 0.25);
 }
 
-.basic {
-    position: absolute;
-    width: 120px;
-    height: 31px;
-    padding: 8px;
-    top: -15px;
-    left: calc(50% - 60px);
-    font-size: 1.2rem;
-    font-weight: 500;
-    background-color: var(--secondary-blue);
-    border-radius: 8px;
-    color: var(--just-white);
-}
-
+.recommended,
+.basic,
 .pro {
     position: absolute;
     width: 120px;
@@ -569,9 +621,21 @@ main {
     left: calc(50% - 60px);
     font-size: 1.2rem;
     font-weight: 500;
-    background-color: var(--warm-black);
     border-radius: 8px;
     color: var(--just-white);
+    transition: background-color 0.3s ease;
+}
+
+.recommended {
+    background-color: var(--bitcoin-orange);
+}
+
+.basic {
+    background-color: var(--secondary-blue);
+}
+
+.pro {
+    background-color: var(--warm-black);
 }
 
 .plan-card--title {
@@ -580,6 +644,11 @@ main {
     font-weight: 500;
     line-height: 1.8rem;
     color: black;
+    transition: color 0.3s ease;
+}
+
+.plan-card--title:hover {
+    color: var(--bitcoin-orange);
 }
 
 .plan-card--price {
@@ -614,6 +683,13 @@ main {
     font-weight: bold;
     line-height: 1.8rem;
     color: black;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.plan-card--ca:hover {
+    background-color: var(--bitcoin-orange);
+    color: var(--just-white);
+    border: 2px solid var(--just-white);
 }
 
 .plan-card--ca span {
@@ -640,7 +716,7 @@ footer section {
 
 footer .left ul {
     font-size: 1.4rem;
-    font-weight: 500px;
+    font-weight: 500;
     line-height: 1.8rem;
     list-style: none;
 }
@@ -652,4 +728,9 @@ footer .left ul {
 .left a {
     text-decoration: none;
     color: var(--just-white);
+    transition: color 0.3s ease;
+}
+
+.left a:hover {
+    color: var(--soft-blue);
 }
